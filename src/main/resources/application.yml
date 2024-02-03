@@ -1,7 +1,7 @@
 server:
- servlet:
-    context-path: /pessoa-endereco/api
+  servlet:
+    context-path: /pessoaendereco/api
     
 springdoc:
   swagger-ui:
-    path: /public/swagger
+    path: /swagger

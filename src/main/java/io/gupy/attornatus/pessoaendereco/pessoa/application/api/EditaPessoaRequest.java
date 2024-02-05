@@ -6,14 +6,19 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 import io.gupy.attornatus.pessoaendereco.endereco.application.api.EnderecoRequest;
-import lombok.Value;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.NonNull;
 
-@Value
-public class PessoaNovoRequest {
+@Getter
+@AllArgsConstructor
+@NoArgsConstructor
+public class EditaPessoaRequest {
 	@NotBlank
 	private String nome;
 	@NotNull
 	private LocalDate data;
-	@NotNull
+	@NonNull
 	private EnderecoRequest endereco;
 }

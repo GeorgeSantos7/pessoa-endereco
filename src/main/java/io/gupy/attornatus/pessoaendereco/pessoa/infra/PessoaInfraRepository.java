@@ -1,8 +1,5 @@
 package io.gupy.attornatus.pessoaendereco.pessoa.infra;
 
-import java.util.List;
-import java.util.UUID;
-
 import org.springframework.stereotype.Repository;
 
 import io.gupy.attornatus.pessoaendereco.pessoa.application.repository.PessoaRepository;
@@ -17,6 +14,7 @@ public class PessoaInfraRepository implements PessoaRepository {
 
 	private final PessoaSpringDataJPARepository pessoaSpringDataJPARepository;
 
+
 	@Override
 	public Pessoa salva(Pessoa pessoa) {
 		log.info("[inicia] PessoaInfraRepository - salva");
@@ -25,20 +23,6 @@ public class PessoaInfraRepository implements PessoaRepository {
 		return novaPessoa;
 	}
 
-	@Override
-	public Pessoa  buscaUsuarioPorId(UUID idPessoa) {
-		log.info("[inicia] PessoaInfraRepository - buscaUsuarioPorId");
-		Pessoa pessoaPorId = pessoaSpringDataJPARepository.findByIdPessoa(idPessoa);
-		log.info("[finalzia] PessoaInfraRepository - buscaUsuarioPorId");
-		return pessoaPorId;
-	}
-
-	@Override
-	public List<Pessoa> buscaTodasPessoas() {
-		log.info("[inicia] - PessoaInfraRepository - buscaTodasGalinhas");
-		List<Pessoa> todasPessoas = pessoaSpringDataJPARepository.findAll();
-		log.info("[finaliza] - PessoaInfraRepository - buscaTodasGalinhas");
-		return todasPessoas;
-	}
+	
 
 }

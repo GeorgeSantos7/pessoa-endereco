@@ -9,5 +9,4 @@ import io.gupy.attornatus.pessoaendereco.pessoa.domain.Pessoa;
 public interface PessoaSpringDataJPARepository extends JpaRepository<Pessoa, UUID>  {
 
 	Pessoa findByIdPessoa(UUID idPessoa);
-
 }

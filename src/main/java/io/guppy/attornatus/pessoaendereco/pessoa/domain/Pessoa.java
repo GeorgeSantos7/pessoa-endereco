@@ -1,6 +1,8 @@
 package io.guppy.attornatus.pessoaendereco.pessoa.domain;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 import org.springframework.data.annotation.Id;
@@ -25,17 +27,26 @@ public class Pessoa {
 	private String nomePessoa;
 	@NotNull
 	private LocalDate dataNascimento;
-	private Endereco endereco;
+	private List<Endereco> enderecos = new ArrayList<>();
 
 	public Pessoa(PessoaRequest novaPessoa) {
 		this.idPessoa = UUID.randomUUID();
 		this.nomePessoa = novaPessoa.getNomePessoa();
 		this.dataNascimento = novaPessoa.getDataNascimento();
-		 this.endereco = new Endereco(novaPessoa.getEndereco());
+		this.enderecos.add(new Endereco(novaPessoa.getEndereco()));
 	}
 
 	public void altera(EditaPessoaRequest editaPessoaRequest) {
 		this.nomePessoa = editaPessoaRequest.getNomePessoa();
 		this.dataNascimento = editaPessoaRequest.getDataNascimento();
 	}
+
+	public void adicionarEndereco(Endereco novoEndereco) {
+		 for (Endereco endereco : this.enderecos) {
+	            endereco.setStatus(StatusEndereco.SECUNDARIO);
+	        }
+	        novoEndereco.setStatus(StatusEndereco.PRINCIPAL);
+	        this.enderecos.add(novoEndereco);
+	    }
+	
 }

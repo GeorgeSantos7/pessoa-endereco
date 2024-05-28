@@ -33,4 +33,8 @@ public class Endereco {
 	    this.cidade = enderecoRequest.getCidade();
 	    this.status = StatusEndereco.PRINCIPAL;
 	}
+
+	public void setStatus(StatusEndereco status) {
+		this.status = status;
+	}
 }

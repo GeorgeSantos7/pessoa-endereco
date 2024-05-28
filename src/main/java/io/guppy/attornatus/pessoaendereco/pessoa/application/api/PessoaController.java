@@ -42,4 +42,12 @@ public class PessoaController implements PessoaAPI {
 		
 	}
 
+	@Override
+	public PessoaResponse adcionaNovoEndereco(UUID idPessoa, @Valid EnderecoRequest enderecoRequest) {
+		log.info("[inicia] PessoaController - adcionaNovoEndereco");
+		Pessoa novoEndereco = pessoaService.adicionaNovoEnderecoPessoa(idPessoa, enderecoRequest);
+		log.info("[finaliza] PessoaController - adcionaNovoEndereco");
+		return new PessoaResponse(novoEndereco);
+	}
+
 }

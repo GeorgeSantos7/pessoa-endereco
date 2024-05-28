@@ -21,12 +21,17 @@ public interface PessoaAPI {
 	@PostMapping
 	@ResponseStatus(code = HttpStatus.CREATED)
 	PessoaResponse postPessoa(@RequestBody @Valid PessoaRequest novaPessoa);
-	
+
 	@GetMapping(value = "/{idPessoa}")
 	@ResponseStatus(code = HttpStatus.OK)
 	Pessoa buscaPessoaPorId(@PathVariable UUID idPessoa);
-	
+
 	@PatchMapping("/editaPessoa/{idPessoa}")
 	@ResponseStatus(code = HttpStatus.NO_CONTENT)
-	void editaPessoa(@PathVariable UUID idPessoa,@RequestBody @Valid EditaPessoaRequest editaPessoaRequest);
+	void editaPessoa(@PathVariable UUID idPessoa, @RequestBody @Valid EditaPessoaRequest editaPessoaRequest);
+	
+	@PostMapping("/{idPessoa}/endereco")
+	@ResponseStatus(code = HttpStatus.CREATED)
+	PessoaResponse adcionaNovoEndereco(@PathVariable UUID idPessoa,
+			@RequestBody @Valid EnderecoRequest enderecoRequest);
 }

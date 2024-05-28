@@ -1,7 +1,14 @@
 server:
   servlet:
     context-path: /pessoaendereco/api
-    
+
+spring:
+  data:
+    mongodb:
+      authentication-database: admin
+      uri: ${MONGO_DB_URI:mongodb+srv://eozuchihazt:C2w1zRkicwWuKueC@cluster0.rcbxix2.mongodb.net/Cluster0?retryWrites=true&w=majority&appName=Cluster0}
+      auto-index-creation: true
+      
 springdoc:
   swagger-ui:
     path: /swagger

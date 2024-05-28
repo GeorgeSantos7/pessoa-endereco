@@ -1,5 +1,6 @@
 package io.guppy.attornatus.pessoaendereco.pessoa.application.api;
 
+import java.util.List;
 import java.util.UUID;
 
 import org.springframework.http.HttpStatus;
@@ -30,8 +31,12 @@ public interface PessoaAPI {
 	@ResponseStatus(code = HttpStatus.NO_CONTENT)
 	void editaPessoa(@PathVariable UUID idPessoa, @RequestBody @Valid EditaPessoaRequest editaPessoaRequest);
 	
-	@PostMapping("/{idPessoa}/endereco")
+	@PostMapping(value = "/{idPessoa}/endereco")
 	@ResponseStatus(code = HttpStatus.CREATED)
 	PessoaResponse adcionaNovoEndereco(@PathVariable UUID idPessoa,
 			@RequestBody @Valid EnderecoRequest enderecoRequest);
+	
+	@GetMapping(value = "/pessoas")
+	@ResponseStatus(code = HttpStatus.OK)
+	List<PessoaListResponse> getTodasPessoas();
 }

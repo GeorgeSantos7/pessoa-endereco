@@ -1,7 +1,9 @@
 package io.guppy.attornatus.pessoaendereco.pessoa.infra;
 
+import java.util.List;
 import java.util.UUID;
 
+import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 import org.springframework.stereotype.Repository;
 
 import io.guppy.attornatus.pessoaendereco.pessoa.application.repository.PessoaRepository;
@@ -9,6 +11,7 @@ import io.guppy.attornatus.pessoaendereco.pessoa.domain.Pessoa;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 @Repository
+@EnableMongoRepositories
 @Log4j2
 @RequiredArgsConstructor
 public class PessoaInfraRepository implements PessoaRepository {
@@ -29,5 +32,13 @@ public class PessoaInfraRepository implements PessoaRepository {
 		Pessoa pessoa = pessoaSpringDataJPARepository.findByIdPessoa(idPessoa);
 		log.info("[finalzia] PessoaInfraRepository - buscaUsuarioPorId");
 		return pessoa;
+	}
+
+	@Override
+	public List<Pessoa> buscaTodasPessoas() {
+		log.info("[inicia] PessoaInfraRepository - buscaTodasPessoas");
+		List<Pessoa> pessoas = pessoaSpringDataJPARepository.findAll();
+		log.info("[finaliza] PessoaInfraRepository - buscaTodasPessoas");
+		return pessoas;
 	}
 }

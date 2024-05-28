@@ -1,5 +1,6 @@
 package io.guppy.attornatus.pessoaendereco.pessoa.application.api;
 
+import java.util.List;
 import java.util.UUID;
 
 import org.springframework.web.bind.annotation.RestController;
@@ -50,4 +51,11 @@ public class PessoaController implements PessoaAPI {
 		return new PessoaResponse(novoEndereco);
 	}
 
+	@Override
+	public List<PessoaListResponse> getTodasPessoas() {
+		log.info("[inicia] PessoaController - getTodasPessoas");
+		List<PessoaListResponse> pessoas = pessoaService.buscaTodasPessoas();
+		log.info("[inicia] PessoaController - getTodasPessoas");
+		return pessoas;
+	}
 }

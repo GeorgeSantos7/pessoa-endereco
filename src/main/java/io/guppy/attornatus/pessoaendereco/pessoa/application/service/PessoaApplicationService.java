@@ -1,11 +1,14 @@
 package io.guppy.attornatus.pessoaendereco.pessoa.application.service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 
 import io.guppy.attornatus.pessoaendereco.pessoa.application.api.EditaPessoaRequest;
 import io.guppy.attornatus.pessoaendereco.pessoa.application.api.EnderecoRequest;
+import io.guppy.attornatus.pessoaendereco.pessoa.application.api.PessoaListResponse;
 import io.guppy.attornatus.pessoaendereco.pessoa.application.api.PessoaRequest;
 import io.guppy.attornatus.pessoaendereco.pessoa.application.api.PessoaResponse;
 import io.guppy.attornatus.pessoaendereco.pessoa.application.repository.PessoaRepository;
@@ -60,4 +63,15 @@ public class PessoaApplicationService implements PessoaService {
 		return pessoa;
 	}
 
+	@Override
+	public List<PessoaListResponse> buscaTodasPessoas() {
+		log.info("[inicia] PessoaApplicationService - buscaTodasPessoas");
+		List<Pessoa> pessoas = pessoaRepository.buscaTodasPessoas();
+		List<PessoaListResponse> resposta = new ArrayList<>();
+	    for (Pessoa pessoa : pessoas) {
+	        resposta.add(new PessoaListResponse(pessoa));
+	    }
+		log.info("[finaliza] PessoaApplicationService - buscaTodasPessoas");
+		return resposta;
+	}
 }

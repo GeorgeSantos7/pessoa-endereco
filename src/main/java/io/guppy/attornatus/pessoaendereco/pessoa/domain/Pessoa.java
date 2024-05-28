@@ -2,7 +2,6 @@ package io.guppy.attornatus.pessoaendereco.pessoa.domain;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.UUID;
 
 import org.springframework.data.annotation.Id;
@@ -27,7 +26,7 @@ public class Pessoa {
 	private String nomePessoa;
 	@NotNull
 	private LocalDate dataNascimento;
-	private List<Endereco> enderecos = new ArrayList<>();
+	private ArrayList<Endereco> enderecos = new ArrayList<>();
 
 	public Pessoa(PessoaRequest novaPessoa) {
 		this.idPessoa = UUID.randomUUID();

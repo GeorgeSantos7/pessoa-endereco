@@ -9,5 +9,4 @@ import io.guppy.attornatus.pessoaendereco.pessoa.domain.Pessoa;
 public interface PessoaSpringDataJPARepository extends MongoRepository<Pessoa, UUID>{
 
 	Pessoa findByIdPessoa(UUID idPessoa);
-
 }

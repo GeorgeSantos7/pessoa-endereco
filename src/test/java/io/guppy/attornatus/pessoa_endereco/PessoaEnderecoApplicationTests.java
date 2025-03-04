@@ -1,4 +1,4 @@
-package io.gupy.attornatus.pessoaendereco;
+package io.guppy.attornatus.pessoa_endereco;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

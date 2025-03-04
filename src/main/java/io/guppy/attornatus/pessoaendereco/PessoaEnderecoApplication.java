@@ -1,4 +1,4 @@
-package io.gupy.attornatus.pessoaendereco;
+package io.guppy.attornatus.pessoaendereco;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
